@@ -1,0 +1,62 @@
+<form [formGroup]="form">
+    <h3>Kommunikáció felvétel</h3>
+    <mat-form-field class="max-width" appearance="fill">
+      <mat-label>Státusz</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let item of statusList" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+      <mat-label>Kategória</mat-label>
+      <mat-select [formControl]="toppingsCatgoriesControl" formControlName="category" multiple>
+        <mat-select-trigger>
+          <mat-chip-list>
+            <mat-chip *ngFor="let topping of toppingsCatgoriesControl.value"
+              [removable]="true" (removed)="onToppingRemoved(topping, toppingsCatgoriesControl)">
+              {{ topping }}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+        </mat-select-trigger>
+        <mat-option *ngFor="let topping of categoriesList" [value]="topping">{{topping}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Prioritás</mat-label>
+        <input matInput placeholder="Pl. notification" focus formControlName="priority">
+      </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Médium</mat-label>
+        <input matInput placeholder="Pl. notification" focus formControlName="medium">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Tárgy</mat-label>
+        <input matInput placeholder="Pl. notification" focus formControlName="subject">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Téma kifejtése</mat-label>
+        <textarea placeholder="Téma kifejtése.." formControlName="topic" matInput></textarea>
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Küldés dátuma</mat-label>
+        <input matInput placeholder="Pl. notification" focus formControlName="sent">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Érkezés dátuma</mat-label>
+        <input matInput placeholder="Pl. notification" focus formControlName="received">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Címzett</mat-label>
+        <input matInput placeholder="Pl. notification" focus formControlName="recipient">
+    </mat-form-field>
+    <mat-form-field class="max-width">
+        <mat-label>Küldő</mat-label>
+        <input matInput placeholder="Pl. notification" focus formControlName="sender">
+    </mat-form-field>
+    <div style="display: flex; justify-content: flex-end;">
+      <button mat-button (click)="dialogRef.close()" class="margin-right">MÉGSEM</button>
+      <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">FELVÉTEL</button>
+    </div>
+  </form>

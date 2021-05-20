@@ -1,1 +1,13 @@
-<p>registration works!</p>
+<div class="centering">
+    <mat-card class="log-card">
+      <form>
+        <h3>Regisztráció</h3>
+        <br>
+        <div><button mat-button color="accent" (click)="callSelectPage.emit('login')">BEJELENTKEZÉS</button></div>
+        <br>
+        <button mat-raised-button color="primary" class="max-width"
+          (click)="callSelectPage.emit('login')" disabled>REGISZTRÁCIÓ</button>
+      </form>
+    </mat-card>
+</div>
+

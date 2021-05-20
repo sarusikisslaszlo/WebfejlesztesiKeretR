@@ -1,14 +1,18 @@
 <span [ngSwitch]="page">
     <span *ngSwitchCase="'home'">
-        <app-nav [categories]="categories" (callSelectC)="onSelect($event)"></app-nav>
+        <app-nav [categories]="categories" (callSelectC)="onSelect($event)" (callSelectPage)="page = $event"></app-nav>
         <span [ngSwitch]="category" class="container">
             <span *ngSwitchCase="'list'" class="container">
-                <app-list></app-list>
+                <app-list appOnHover></app-list>
+                <button mat-fab class="action-btn" (click)="openDialog()">
+                    <mat-icon>add</mat-icon>
+                </button>
             </span>
             <span *ngSwitchCase="'notifications'" class="container">
-                <app-notification-card></app-notification-card>
+                <app-notification-card appOnHover></app-notification-card>
             </span>
-            <span *ngSwitchCase="'details'" class="container">
+            <span *ngSwitchCase="'description'" class="container">
+                <app-communication-card appOnHover></app-communication-card>
             </span>
             <span *ngSwitchDefault class="container">
                 <app-splash-screen [categories]="categories"></app-splash-screen>
@@ -21,6 +25,6 @@
     </span>
 
     <span *ngSwitchDefault>
-        <app-login></app-login>
+        <app-login (callSelectPage)="page = $event"></app-login>
     </span>
 </span>
