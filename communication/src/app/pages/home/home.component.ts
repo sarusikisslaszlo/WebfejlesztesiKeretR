@@ -1,16 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CATEGORIES } from 'src/app/shared/database/category.database';
 
 @Component({
   selector: 'app-home',
-  template: '<h1>Hello Communication!</h1>'
-  //templateUrl: './home.component.html',
-  //styleUrls: ['./home.component.scss']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent /*implements OnInit*/ {
+export class HomeComponent implements OnInit, OnDestroy {
+  categories = CATEGORIES;
+  category?= '';
+  page = 'home';
 
-  /*constructor() { }
+  constructor() { }
 
   ngOnInit(): void {
-  }*/
+    this.category = '';
+  }
+
+  ngOnDestroy(): void {
+    delete this.category;
+  }
+
+  onSelect(event: string): void {
+    this.category = event;
+  }
 
 }

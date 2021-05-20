@@ -1,1 +1,26 @@
-<p>home works!</p>
+<span [ngSwitch]="page">
+    <span *ngSwitchCase="'home'">
+        <app-nav [categories]="categories" (callSelectC)="onSelect($event)"></app-nav>
+        <span [ngSwitch]="category" class="container">
+            <span *ngSwitchCase="'list'" class="container">
+                <app-list></app-list>
+            </span>
+            <span *ngSwitchCase="'notifications'" class="container">
+                <app-notification-card></app-notification-card>
+            </span>
+            <span *ngSwitchCase="'details'" class="container">
+            </span>
+            <span *ngSwitchDefault class="container">
+                <app-splash-screen [categories]="categories"></app-splash-screen>
+            </span>
+        </span>
+    </span>
+
+    <span *ngSwitchCase="'registration'">
+        <app-registration></app-registration>
+    </span>
+
+    <span *ngSwitchDefault>
+        <app-login></app-login>
+    </span>
+</span>

@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatCardModule } from '@angular/material/card';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeModule } from './pages/home/home.module';
+import { NotificationCardComponent } from './pages/notification/card/notification-card.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatSliderModule,
-    MatCardModule
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
