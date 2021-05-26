@@ -30,5 +30,4 @@ export class RegistrationComponent {
     }
     this.error = true;
   }
-
 }
