@@ -5,18 +5,21 @@ export const CATEGORIES: Category[] = [
         title: 'Lista',
         icon: 'list',
         value: 'list',
-        color: 'teal'
+        color: 'teal',
+        url: "/home/communications"
     },
     {
         title: 'Értesítések',
         icon: 'notifications',
         value: 'notifications',
-        color: 'cyan'
+        color: 'cyan',
+        url: "/home/communications"
     },
     {
         title: 'Adatok',
         icon: 'description',
         value: 'description',
-        color: '#c2185b'
+        color: '#c2185b',
+        url: "/home/communications"
     }
 ];

@@ -7,7 +7,8 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { CommunicationCardComponent } from './pages/communication/card/communication-card.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,9 @@ import { CommunicationCardComponent } from './pages/communication/card/communica
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    HomeModule
+    HomeModule,
+    AppRoutingModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

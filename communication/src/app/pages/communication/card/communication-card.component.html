@@ -1,1 +1,17 @@
-<p>communication-card works!</p>
+<mat-card *ngIf="communication" (click)="getCommunication.emit(communication)" class="mat-elevation-z5" appOnHover>
+    <mat-card-header>
+      <mat-card-title>{{communication.topic}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <img src="assets/images/image.png" alt="borito">
+      <p>{{communication.status}}</p>
+    </mat-card-content>
+    <mat-card-actions layout="row" layout-align="space-between center">
+        <button mat-mini-fab color="primary" (click)="openUpdateDialog(communication)" class="button-card-left">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn" (click)="deleteObject(communication.id)" class="button-card-right">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

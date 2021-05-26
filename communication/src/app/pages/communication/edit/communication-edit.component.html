@@ -28,38 +28,38 @@
     <mat-slider thumbLabel step="1" min="1" max="5" aria-label="units" formControlName="priority"></mat-slider>
     <mat-form-field class="max-width">
         <mat-label>Médium</mat-label>
-        <input matInput focus formControlName="medium">
+        <input matInput [(ngModel)]="data.communication.medium" focus formControlName="medium">
     </mat-form-field>
     <mat-form-field class="max-width">
         <mat-label>Tárgy</mat-label>
-        <input matInput focus formControlName="subject">
+        <input matInput [(ngModel)]="data.communication.subject" focus formControlName="subject">
     </mat-form-field>
     <mat-form-field class="max-width">
         <mat-label>Téma kifejtése</mat-label>
-        <textarea formControlName="topic" matInput></textarea>
+        <textarea formControlName="topic" [(ngModel)]="data.communication.topic" matInput></textarea>
     </mat-form-field>
     <mat-form-field class="max-width">
         <mat-label>Küldés dátuma</mat-label>
-        <input matInput [matDatepicker]="pickerSent" formControlName="sent">
+        <input matInput [(ngModel)]="data.communication.sent" value="2021-05-29" [matDatepicker]="pickerSent" formControlName="sent">
         <mat-datepicker-toggle matSuffix [for]="pickerSent"></mat-datepicker-toggle>
         <mat-datepicker #pickerSent></mat-datepicker>
     </mat-form-field>
     <mat-form-field class="max-width">
         <mat-label>Érkezés dátuma</mat-label>
-        <input matInput [matDatepicker]="pickerReceived" formControlName="received">
+        <input matInput [(ngModel)]="data.communication.received" [matDatepicker]="pickerReceived" formControlName="received">
         <mat-datepicker-toggle matSuffix [for]="pickerReceived"></mat-datepicker-toggle>
         <mat-datepicker #pickerReceived></mat-datepicker>
     </mat-form-field>
     <mat-form-field class="max-width">
         <mat-label>Címzett</mat-label>
-        <input matInput focus formControlName="recipient">
+        <input matInput [(ngModel)]="data.communication.recipient" focus formControlName="recipient">
     </mat-form-field>
     <mat-form-field class="max-width">
         <mat-label>Küldő</mat-label>
-        <input matInput focus formControlName="sender">
+        <input matInput [(ngModel)]="data.communication.sender" focus formControlName="sender">
     </mat-form-field>
     <div style="display: flex; justify-content: flex-end;">
       <button mat-button (click)="dialogRef.close()" class="margin-right">MÉGSEM</button>
-      <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">FELVÉTEL</button>
+      <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">SZERKESZT</button>
     </div>
   </form>

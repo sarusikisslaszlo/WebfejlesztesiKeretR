@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-communication-add',
-  templateUrl: './communication-add.component.html',
-  styleUrls: ['./communication-add.component.scss']
+  selector: 'app-communication-edit',
+  templateUrl: './communication-edit.component.html',
+  styleUrls: ['./communication-edit.component.scss']
 })
-export class CommunicationAddComponent implements OnInit {
-  toppingsCatgoriesControl =  new FormControl([], Validators.required);
+export class CommunicationEditComponent implements OnInit {
+
+  toppingsCatgoriesControl =  new FormControl(this.data.communication.category, Validators.required);
   categoriesList: string[] = ['alert', 'notification', 'reminder', 'instruction'];
   statusList: string[] = ['preparation', 'in-progress', 'not-done', 'on-hold', 'stopped', 'completed', 'entered-in-error', 'unknown'];
 
   form: FormGroup = new FormGroup({
-    status: new FormControl('', Validators.required),
+    status: new FormControl(this.data.communication.status, Validators.required),
     category: this.toppingsCatgoriesControl,
-    priority: new FormControl(1, Validators.required),
+    priority: new FormControl(this.data.communication.priority, Validators.required),
     medium: new FormControl('', Validators.required),
     subject: new FormControl('', Validators.required),
     topic: new FormControl('', Validators.required),
@@ -25,7 +26,7 @@ export class CommunicationAddComponent implements OnInit {
     sender: new FormControl('', Validators.required),
   });
 
-  constructor(public dialogRef: MatDialogRef<CommunicationAddComponent>) { }
+  constructor(public dialogRef: MatDialogRef<CommunicationEditComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
   }

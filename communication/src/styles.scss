@@ -36,3 +36,11 @@ body {
     height: auto;
   }
 }
+
+.item {
+  flex: 1 1;
+  min-width: 250px;
+  margin: 4px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
