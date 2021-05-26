@@ -1,18 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { FbBaseService } from 'src/app/services/fb-base.service';
 import { Communication } from 'src/app/shared/models/communication.model';
-import { CommunicationAddComponent } from '../add/communication-add.component';
-import { catchError } from 'rxjs/operators';
+import { CommunicationAddComponent } from '../communication/add/communication-add.component';
 
 @Component({
-  selector: 'app-communication-list',
-  templateUrl: './communication-list.component.html',
-  styleUrls: ['./communication-list.component.scss']
+  selector: 'app-notification',
+  templateUrl: './notification.component.html',
+  styleUrls: ['./notification.component.scss']
 })
-export class CommunicationListComponent implements OnInit {
-  title = 'Kommunikációk';
+export class NotificationComponent implements OnInit {
+  title = 'Értesítések';
   list$: Observable<Communication[]> | null = null;
 
   errorObject = null;
@@ -20,21 +20,7 @@ export class CommunicationListComponent implements OnInit {
   constructor(private service: FbBaseService<Communication>, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.get();
-  }
-
-  ngAfterViewChecked() {
-    console.log('ngAfterViewChecked:::::app component');
-  }
-
-  get(): void {
-    this.errorObject = null;
-    this.list$ = this.service.get('communication').pipe(
-      catchError(err => {
-        this.errorObject = err;
-        return throwError(err);
-      })
-    );
+    this.getNotification();
   }
 
   getNotification(): void {
@@ -45,6 +31,7 @@ export class CommunicationListComponent implements OnInit {
         return throwError(err);
       })
     );
+    console.log(this.list$);
   }
 
   openDialog(): void {
@@ -59,4 +46,3 @@ export class CommunicationListComponent implements OnInit {
   }
 
 }
-

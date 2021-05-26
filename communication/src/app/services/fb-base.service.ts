@@ -17,6 +17,22 @@ export class FbBaseService<T extends { id?: string }>  {
     }).valueChanges() as Observable<T[]>;
   }
 
+  getNotification(collectionName: string) {
+    return this.afs.collection(collectionName, ref => {
+      let query: CollectionReference | Query = ref;
+      query = query.where('category', 'array-contains', 'notification');
+      return query;
+    }).valueChanges() as Observable<T[]>;
+  }
+
+  getAlert(collectionName: string) {
+    return this.afs.collection(collectionName, ref => {
+      let query: CollectionReference | Query = ref;
+      query = query.where('category', 'array-contains', 'alert');
+      return query;
+    }).valueChanges() as Observable<T[]>;
+  }
+
   async add(collectionName: string, data: T, id?: string): Promise<string> {
     const uid = id ? id : this.afs.createId();
     data.id = uid;

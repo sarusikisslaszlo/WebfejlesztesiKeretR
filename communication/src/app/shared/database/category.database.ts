@@ -13,13 +13,13 @@ export const CATEGORIES: Category[] = [
         icon: 'notifications',
         value: 'notifications',
         color: 'cyan',
-        url: "/home/communications"
+        url: "/home/notification"
     },
     {
-        title: 'Adatok',
-        icon: 'description',
-        value: 'description',
+        title: 'Figyelmeztetés',
+        icon: 'report',
+        value: 'report',
         color: '#c2185b',
-        url: "/home/communications"
+        url: "/home/alert"
     }
 ];

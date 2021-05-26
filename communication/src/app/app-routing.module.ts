@@ -8,12 +8,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
   },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
+    path: 'notification',
+    loadChildren: () => import('./pages/notification/notification.module').then(m => m.NotificationModule),
   },
   {
-    path: 'registration',
-    loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationModule),
+    path: 'alert',
+    loadChildren: () => import('./pages/alert/alert.module').then(m => m.AlertModule),
   },
   {
     path: '**',

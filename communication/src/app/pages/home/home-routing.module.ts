@@ -15,6 +15,14 @@ const routes: Routes = [
             {
                 path: 'communications',
                 loadChildren: () => import('./../communication/list/communication-list.module').then(m => m.CommunicationListModule),
+            },
+            {
+                path: 'notification',
+                loadChildren: () => import('./../notification/notification.module').then(m => m.NotificationModule),
+            },
+            {
+                path: 'alert',
+                loadChildren: () => import('./../alert/alert.module').then(m => m.AlertModule),
             }
         ]
     },

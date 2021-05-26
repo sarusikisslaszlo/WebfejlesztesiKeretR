@@ -15,14 +15,6 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [routerLink]="[ '/home' ]">
-        <mat-icon>person</mat-icon>
-        <span>Profil</span>
-      </button>
-      <button mat-menu-item disabled>
-        <mat-icon>settings</mat-icon>
-        <span>Beállítások</span>
-      </button>
       <button mat-menu-item (click)="logout()">
         <mat-icon>arrow_back</mat-icon>
         <span>Kijelentkezés</span>
